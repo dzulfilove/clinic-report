@@ -76,7 +76,11 @@ const TestimoniCard = ({ testimoni }) => {
               : "bg-red-100 text-red-800"
           }`}
         >
-          {testimoni?.class === "positive" ? "Positif" : "Negatif"}
+           {testimoni?.class === "positive"
+            ? "Positif"
+            : testimoni?.class === "negative"
+            ? "Negatif"
+            : "Neutral"}
         </span>
       </div>
     </div>
