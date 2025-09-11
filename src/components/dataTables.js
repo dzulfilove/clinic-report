@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useTheme } from "../contexts/themeContext";
 
-const DataTable = ({ data, columns,title }) => {
+const DataTable = ({ data, columns, title }) => {
   const { darkMode } = useTheme();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
@@ -131,32 +131,33 @@ const DataTable = ({ data, columns,title }) => {
                   <td key={column.accessor} className="px-4 py-4 text-sm">
                     {column.accessor === "class" ? (
                       <span
-                        className={`inline-flex justify-center items-center px-4 py-1 w-16 rounded-full text-xs font-medium ${
-                          row[column.accessor] === "positive"
-                            ? darkMode
-                              ? " bg-green-900 text-green-200"
-                              : "bg-green-100 text-green-800"
-                            : darkMode
-                            ? " bg-red-900 text-red-200"
-                            : "bg-red-100 text-red-800"
-                        }`}
+                        className={`inline-flex justify-center items-center px-4 py-1 w-16 rounded-full text-xs font-medium
+      ${
+        row[column.accessor] === "positive"
+          ? darkMode
+            ? "bg-green-900 text-green-200"
+            : "bg-green-100 text-green-800"
+          : row[column.accessor] === "negative"
+          ? darkMode
+            ? "bg-red-900 text-red-200"
+            : "bg-red-100 text-red-800"
+          : darkMode
+          ? "bg-gray-700 text-gray-200"
+          : "bg-gray-200 text-gray-800"
+      }`}
                       >
-                        {row[column.accessor] ?? "-"}
+                        {row[column.accessor] ?? "Neutral"}
                       </span>
                     ) : column.accessor === "answer" ? (
                       <span
                         className={`inline-flex justify-center items-center px-4 py-1 w-16 rounded-full text-xs font-medium ${
                           row[column.accessor]
-                            ? `${
-                                darkMode
-                                  ? " bg-blue-900 text-blue-200"
-                                  : "bg-blue-100 text-blue-800"
-                              }`
-                            : `${
-                                darkMode
-                                  ? "bg-yellow-900 text-yellow-200"
-                                  : "bg-yellow-100 text-yellow-800 "
-                              }`
+                            ? darkMode
+                              ? "bg-blue-900 text-blue-200"
+                              : "bg-blue-100 text-blue-800"
+                            : darkMode
+                            ? "bg-yellow-900 text-yellow-200"
+                            : "bg-yellow-100 text-yellow-800"
                         }`}
                       >
                         {row[column.accessor] === undefined

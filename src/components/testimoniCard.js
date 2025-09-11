@@ -56,7 +56,11 @@ const TestimoniCard = ({ testimoni }) => {
           darkMode ? "text-gray-300" : "text-gray-600"
         } mb-4 italic`}
       >
-        "{testimoni.critics=="-"?"Tidak Memberikan Keterangan":testimoni.critics}"
+        "
+        {testimoni.critics == "-"
+          ? "Tidak Memberikan Keterangan"
+          : testimoni.critics}
+        "
       </p>
 
       <div className="flex items-center justify-between">
@@ -76,7 +80,11 @@ const TestimoniCard = ({ testimoni }) => {
               : "bg-red-100 text-red-800"
           }`}
         >
-          {testimoni?.class === "positive" ? "Positif" : "Negatif"}
+          {testimoni?.class === "positive"
+            ? "Positif"
+            : testimoni?.class === "negative"
+            ? "Negatif"
+            : "Neutral"}
         </span>
       </div>
     </div>
