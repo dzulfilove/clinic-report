@@ -148,7 +148,7 @@ export default function Navbar() {
               🏠 Home
             </Link>
             <Link
-              to="/about"
+              to="/feedback"
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg ${
                 darkMode
                   ? "text-gray-300 hover:text-emerald-400 hover:bg-emerald-900/20"
@@ -156,10 +156,10 @@ export default function Navbar() {
               } text-sm font-medium transition-all duration-200 active:scale-95`}
               onClick={closeMobileMenu}
             >
-              ℹ️ About
+              Data Statistik
             </Link>
             <Link
-              to="/contact"
+              to="/testimoni"
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg ${
                 darkMode
                   ? "text-gray-300 hover:text-emerald-400 hover:bg-emerald-900/20"
@@ -167,7 +167,7 @@ export default function Navbar() {
               } text-sm font-medium transition-all duration-200 active:scale-95`}
               onClick={closeMobileMenu}
             >
-              📞 Contact
+            Testimoni
             </Link>
           </div>
         </div>
