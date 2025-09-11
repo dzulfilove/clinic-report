@@ -187,7 +187,7 @@ export default function Dashboard() {
                 {data.pieData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={COLORS[entry.name] || "#8884d8"} // pakai warna sesuai name
+                    fill={COLORS[entry.name] || "#187BCD"} // pakai warna sesuai name
                   />
                 ))}
               </Pie>

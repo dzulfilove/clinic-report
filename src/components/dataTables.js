@@ -142,8 +142,8 @@ const DataTable = ({ data, columns,title }) => {
             ? "bg-red-900 text-red-200"
             : "bg-red-100 text-red-800"
           : darkMode
-          ? "bg-gray-700 text-gray-200"
-          : "bg-gray-200 text-gray-800"
+          ? "bg-blue-700 text-blue-200"
+          : "bg-blue-200 text-blue-800"
       }`}
                       >
                         {row[column.accessor] ?? "Neutral"}

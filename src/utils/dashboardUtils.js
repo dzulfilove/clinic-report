@@ -53,7 +53,7 @@ export const fetchProgressData = async (setData, setLoading, setError) => {
         pieData: [
           { name: "Positive", value: 0, color: "#4CAF50" },
           { name: "Negative", value: 0, color: "#F44336" },
-          { name: "No Reply", value: 0, color: "#B3CDE0" },
+          { name: "Neutral", value: 0, color: "#187BCD" },
         ],
         lineData: [],
       }
