@@ -5,6 +5,7 @@ import { Card, CardContent } from "../components/card";
 import { getStokAkhir } from "../utils/historyStockUtils";
 import DataTable from "../components/dataTables";
 import { useTheme } from "../contexts/themeContext";
+import StockCard from "../components/stockCard";
 
 export default function StokHabisPage() {
   const searchParams = useSearchParams()[0];
@@ -78,12 +79,18 @@ export default function StokHabisPage() {
         Laporan Stok Hampir Habis
       </h1>
       <div className="text-sm flex w-full justify-center mb-10 gap-2">
-        Tanggal:{" "}
+ 
         <span className="font-medium">{formatTanggalIndonesia(date)}</span> —
-        Jam: <span className="font-medium">{time}</span>
+        <span className="font-medium">{time}</span>
       </div>
-      <Card className="shadow-md rounded-2xl">
-        <CardContent className="p-4">
+      <Card
+        className={`shadow-md rounded-2xl  ${
+          darkMode ? "bg-gray-700" : "bg-gray-500"
+        }`}
+      >
+        <CardContent
+          className={`rounded-2xl  ${darkMode ? "bg-gray-700" : "bg-slate-50"}`}
+        >
           <div className="overflow-hidden">
             {loading ? (
               <p className="text-center">Loading...</p>
@@ -95,6 +102,25 @@ export default function StokHabisPage() {
                     columns={columns}
                     title={"Data Stock Hampir Habis"}
                   />
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 md:hidden ">
+                  <div
+                    className={`text-center text-base text-bold flex w-100    rounded-xl  ${
+                      darkMode ? "bg-gray-900 border border-slate-600 p-4" : "p-2 text-xl bg-gray-100 font-bold justify-center "
+                    }`}
+                  >
+                    Data Stok Hampir Habis
+                  </div>
+                  {data?.length > 0 ? (
+                    data.map((stock) => (
+                      <StockCard key={stock.id} dataStock={stock} />
+                    ))
+                  ) : (
+                    <p className="text-center col-span-full text-gray-500">
+                      Belum ada Data Stok Habis
+                    </p>
+                  )}
                 </div>
               </>
             )}

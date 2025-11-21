@@ -7,7 +7,7 @@ export async function getStokAkhir(date, time) {
     const col = collection(dbExampp, "stock");
     const q = query(col, where("date", "==", date), where("time", "==", time));
     const snap = await getDocs(q);
-    console.log("res", snap.docs);
+
 
     return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
   } catch (err) {
