@@ -31,6 +31,40 @@ export default function StokHabisPage() {
     { header: "Min. Stock", accessor: "minStock" },
     { header: "Stock", accessor: "stock" },
   ];
+  function formatTanggalIndonesia(tanggal) {
+    const bulan = [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember",
+    ];
+
+    const hari = [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu",
+    ];
+
+    const date = new Date(tanggal);
+    const hariNama = hari[date.getDay()];
+    const tanggalAngka = date.getDate();
+    const bulanNama = bulan[date.getMonth()];
+    const tahun = date.getFullYear();
+
+    return `${hariNama}, ${tanggalAngka} ${bulanNama} ${tahun}`;
+  }
 
   return (
     <motion.div
@@ -40,10 +74,13 @@ export default function StokHabisPage() {
         darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-100 text-gray-900"
       } transition-colors duration-300`}
     >
-      <h1 className="text-2xl font-semibold mb-4 text-center">Laporan Stok Hampir Habis</h1>
+      <h1 className="text-2xl font-semibold mb-4 text-center">
+        Laporan Stok Hampir Habis
+      </h1>
       <div className="text-sm flex w-full justify-center mb-10 gap-2">
-        Tanggal: <span className="font-medium">{date}</span> — Jam:{" "}
-        <span className="font-medium">{time}</span>
+        Tanggal:{" "}
+        <span className="font-medium">{formatTanggalIndonesia(date)}</span> —
+        Jam: <span className="font-medium">{time}</span>
       </div>
       <Card className="shadow-md rounded-2xl">
         <CardContent className="p-4">
@@ -52,7 +89,7 @@ export default function StokHabisPage() {
               <p className="text-center">Loading...</p>
             ) : (
               <>
-                <div className="mt-8 w-100 hidden md:block">
+                <div className=" w-100 hidden md:block">
                   <DataTable
                     data={data}
                     columns={columns}
