@@ -5,6 +5,7 @@ import Dashboard from "./page/dashboard";
 import { NavbarProvider } from "./contexts/navbarContext";
 import TestimoniPage from "./page/testimoni";
 import FeedbackDataPage from "./page/feedBackPage";
+import StokHabisPage from "./page/historyStock"; // <--- Tambah ini
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route index element={<Dashboard />} />
               <Route path="/testimoni" element={<TestimoniPage />} />
               <Route path="/feedback" element={<FeedbackDataPage />} />
+              <Route path="/stok-habis" element={<StokHabisPage />} />
             </Route>
           </Route>
         </Routes>

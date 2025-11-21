@@ -5,7 +5,7 @@ import { useTheme } from "../contexts/themeContext";
 const DataTable = ({ data, columns,title }) => {
   const { darkMode } = useTheme();
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5);
+  const [itemsPerPage] = useState(15);
   const [sortConfig, setSortConfig] = useState({
     key: null,
     direction: "ascending",
@@ -62,7 +62,7 @@ const DataTable = ({ data, columns,title }) => {
     link.click();
     document.body.removeChild(link);
   };
-
+// console.log(data,"datadisplay")
   return (
     <div
       className={`rounded-2xl p-6 shadow-lg ${
