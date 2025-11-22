@@ -31,6 +31,7 @@ export default function StokHabisPage() {
     { header: "Nama", accessor: "name" },
     { header: "Min. Stock", accessor: "minStock" },
     { header: "Stock", accessor: "stock" },
+    { header: "Satuan", accessor: "unit" },
   ];
   function formatTanggalIndonesia(tanggal) {
     const bulan = [
