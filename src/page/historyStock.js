@@ -76,7 +76,7 @@ export default function StokHabisPage() {
       } transition-colors duration-300`}
     >
       <h1 className="text-2xl font-semibold mb-4 text-center">
-        Laporan Stok Hampir Habis
+        Laporan Stok Mendekati Minimum
       </h1>
       <div className="text-sm flex w-full justify-center mb-10 gap-2">
  
@@ -110,7 +110,7 @@ export default function StokHabisPage() {
                       darkMode ? "bg-gray-900 border border-slate-600 p-4" : "p-2 text-xl bg-gray-100 font-bold justify-center "
                     }`}
                   >
-                    Data Stok Hampir Habis
+                    Data Stok Hampir Habis Nih
                   </div>
                   {data?.length > 0 ? (
                     data.map((stock) => (
